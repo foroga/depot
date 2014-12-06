@@ -1,0 +1,56 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Unit:</strong>
+  <%= link_to( @person.unit.name , :controller => 'units', 
+							:action => 'show', :id => @person.unit_id ) %> 	
+	<%= link_to '(Members)', people_path(:unit_id=>@person.unit_id) %>
+</p>
+
+<p>
+  <strong>Nickname:</strong>
+  <%= @person.nickname %>
+</p>
+
+<p>
+  <strong>Accesslevel:</strong>
+  <%= @person.accesslevel %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @person.name %>
+</p>
+
+<p>
+  <strong>Surname:</strong>
+  <%= @person.surname %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @person.email %>
+</p>
+
+<p>
+  <strong>Telefone:</strong>
+  <%= @person.telefone %>
+</p>
+
+<p>
+  <strong>Password digest:</strong>
+  <%= @person.password_digest %>
+</p>
+
+<p>
+  <strong>Active:</strong>
+  <%= @person.active %>
+</p>
+
+<p>
+  <strong>Note:</strong>
+  <%= @person.note %>
+</p>
+
+<%= link_to 'Edit', edit_person_path(@person) %>
+

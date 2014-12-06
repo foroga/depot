@@ -1,0 +1,44 @@
+*- Grupos de consumo
+
+rails generate scaffold Group name email telefone:integer active:boolean dealtype note address error_unit_id:integer acounting_unit_id:integer bill_unit_id:integer sw_unit_id:integer acount_id:integer
+
+*- Unidades de consumo
+
+rails generate scaffold Unit group_id:integer name email telefone:integer active:boolean note account_id:integer
+
+*- Personas
+
+rails generate scaffold Person unit_id:integer nickname accesslevel name surname email telefone:integer password_digest active:boolean note
+
+
+*-- Productores
+
+rails generate scaffold Supplier name email telefone:integer url active:boolean note frecuency ranking:integer account_id:integer watcher_unit_id:integer
+
+*-- Productos de un productor
+
+rails generate scaffold Product supplier_id:integer name imageurl active:boolean note minall:decimal mingroup:decimal minunit:decimal kgxunit:decimal unittype price:decimal priceold:decimal
+
+*--- Pedidos
+
+rails generate scaffold Order state:string date:datetime requested:decimal received:decimal priceini:decimal priceend:decimal
+
+
+*--- Productores de un Pedido
+
+rails generate scaffold OrderSupplier order_id:integer supplier_id:integer group_id:integer position:integer
+
+
+*--- Items de un pedido
+
+rails generate scaffold Item order_id:integer product_id:integer supplier_id:integer name note minall:decimal mingroup:decimal minunit:decimal kgxunit:decimal unittype price:decimal
+
+
+*---- Cantidades pedidas de un pedido
+
+rails generate scaffold Request item_id:integer unit_id:integer requested:decimal received:decimal priceini:decimal priceend:decimal
+
+*----- Apuntes contables
+
+rails generate scaffold Account date:datetime concept amountini:decimal amountend:decimal state note
+

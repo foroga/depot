@@ -1,0 +1,61 @@
+<%= form_for(@item) do |f| %>
+  <% if @item.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@item.errors.count, "error") %> prohibited this item from being saved:</h2>
+
+      <ul>
+      <% @item.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :order_id %><br>
+    <%= f.number_field :order_id %>
+  </div>
+  <div class="field">
+    <%= f.label :supplier_id %><br>
+    <%= f.number_field :supplier_id %>
+  </div>
+  <div class="field">
+    <%= f.label :product_id %><br>
+    <%= f.number_field :product_id %>
+  </div>
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :note %><br>
+    <%= f.text_field :note %>
+  </div>
+  <div class="field">
+    <%= f.label :minall %><br>
+    <%= f.text_field :minall, :step => 0.5 %>
+  </div>
+  <div class="field">
+    <%= f.label :mingroup %><br>
+    <%= f.text_field :mingroup, :step => 0.5 %>
+  </div>
+  <div class="field">
+    <%= f.label :minunit %><br>
+    <%= f.text_field :minunit, :step => 0.5 %>
+  </div>
+  <div class="field">
+    <%= f.label :kgxunit %><br>
+    <%= f.text_field :kgxunit, :step => 0.5 %>
+  </div>
+  <div class="field">
+    <%= f.label :unittype %><br>
+    <%= f.text_field :unittype %>
+  </div>
+  <div class="field">
+    <%= f.label :price %><br>
+    <%= f.text_field :price %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

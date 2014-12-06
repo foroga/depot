@@ -1,0 +1,65 @@
+<%= form_for(@product) do |f| %>
+  <% if @product.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@product.errors.count, "error") %> prohibited this product from being saved:</h2>
+
+      <ul>
+      <% @product.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :supplier_id %><br>
+    <%= f.select(:supplier_id, @suppliers.map {|s| [s.name, s.id]}) %>
+  </div>
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :imageurl %><br>
+    <%= f.text_field :imageurl %>
+  </div>
+  <div class="field">
+    <%= f.label :active %><br>
+    <%= f.check_box :active %>
+  </div>
+  <div class="field">
+    <%= f.label :note %><br>
+    <%= f.text_field :note %>
+  </div>
+  <div class="field">
+    <%= f.label :minall %><br>
+    <%= f.text_field :minall %>
+  </div>
+  <div class="field">
+    <%= f.label :mingroup %><br>
+    <%= f.text_field :mingroup %>
+  </div>
+  <div class="field">
+    <%= f.label :minunit %><br>
+    <%= f.text_field :minunit %>
+  </div>
+  <div class="field">
+    <%= f.label :kgxunit %><br>
+    <%= f.text_field :kgxunit %>
+  </div>
+  <div class="field">
+    <%= f.label :unittype %><br>
+    <%= f.text_field :unittype %>
+  </div>
+  <div class="field">
+    <%= f.label :price %><br>
+    <%= f.text_field :price %>
+  </div>
+  <div class="field">
+    <%= f.label :priceold %><br>
+    <%= f.text_field :priceold %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,54 @@
+<%  @page_title = "Arac" %>
+
+Hola <%= session[:user_nickname]%> 
+
+
+
+<div class="menu">
+	<ul>
+		<li> <%= link_to("Mi Perfil", :controller => 'people', 
+							:action => 'show', :id => session[:user_id], 
+							:unit_id => session[:unit_id] ) %> </li>
+		<li> <%= link_to("Proveedores", :controller => 'suppliers' ) %> </li>
+		<li> <%= link_to("Pedidos", :controller => 'orders' ) %> </li>
+		<li> <%= link_to("Manage Requests", :controller => 'requests' ) %> </li>
+		<li> <%= link_to("Logout", :action => 'logout') %> </li>
+	</ul>
+
+Pedidos Abiertos
+<ul>
+	<% @openorders.each  do |order| %>
+		<li>
+		    <%= order.id %>  
+				<%= order.date.year %>/<%= order.date.month %>/<%= order.date.day %> 
+        <%= link_to('Buy', :controller => 'request', :action => 'index') %> 
+		</li>
+	<% end %>
+</ul>	
+
+
+Tus Pedidos
+<ul>
+	<% @orders.each  do |order| %>
+		<li>
+		    <%= order.id %>  
+				<%= order.date.year %>/<%= order.date.month %>/<%= order.date.day %> 
+				<%= order.state %>
+		</li>
+	<% end %>
+</ul>	
+
+Tus Proveedores
+<ul>
+	<% @suppliers.each  do |supplier| %>
+		<li> <%= link_to(supplier.name, :controller => 'suppliers', 
+							:action => 'index', :id => supplier.id ) %> 
+         <%= link_to("(productos)", :controller => 'products', 
+							:action => 'index', :supplier_id => supplier.id ) %> 
+	 	</li>
+
+	<% end %>
+</ul>	
+
+
+</div>

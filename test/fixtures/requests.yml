@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  item_id: 1
+  unit_id: 1
+  requested: 9.99
+  received: 9.99
+  priceini: 9.99
+  priceend: 9.99
+
+two:
+  item_id: 1
+  unit_id: 1
+  requested: 9.99
+  received: 9.99
+  priceini: 9.99
+  priceend: 9.99

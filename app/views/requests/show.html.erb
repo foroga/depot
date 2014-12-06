@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Item:</strong>
+  <%= @request.item_id %>
+</p>
+
+<p>
+  <strong>Unit:</strong>
+  <%= @request.unit_id %>
+</p>
+
+<p>
+  <strong>Requested:</strong>
+  <%= @request.requested %>
+</p>
+
+<p>
+  <strong>Received:</strong>
+  <%= @request.received %>
+</p>
+
+<p>
+  <strong>Priceini:</strong>
+  <%= @request.priceini %>
+</p>
+
+<p>
+  <strong>Priceend:</strong>
+  <%= @request.priceend %>
+</p>
+
+<%= link_to 'Edit', edit_request_path(@request) %> |
+<%= link_to 'Back', requests_path %>

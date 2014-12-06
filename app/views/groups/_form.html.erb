@@ -1,0 +1,65 @@
+<%= form_for(@group) do |f| %>
+  <% if @group.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@group.errors.count, "error") %> prohibited this group from being saved:</h2>
+
+      <ul>
+      <% @group.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :email %><br>
+    <%= f.text_field :email %>
+  </div>
+  <div class="field">
+    <%= f.label :telefone %><br>
+    <%= f.number_field :telefone %>
+  </div>
+  <div class="field">
+    <%= f.label :active %><br>
+    <%= f.check_box :active %>
+  </div>
+  <div class="field">
+    <%= f.label :dealtype %><br>
+    <%= f.text_field :dealtype %>
+  </div>
+  <div class="field">
+    <%= f.label :note %><br>
+    <%= f.text_field :note %>
+  </div>
+  <div class="field">
+    <%= f.label :address %><br>
+    <%= f.text_field :address %>
+  </div>
+  <div class="field">
+    <%= f.label :error_unit_id %><br>
+    <%= f.select(:error_unit_id, @units.map {|s| [s.name, s.id]}) %>
+  </div>
+  <div class="field">
+    <%= f.label :acounting_unit_id %><br>
+    <%= f.select( :acounting_unit_id, @units.map {|s| [s.name, s.id]}) %>
+  </div>
+  <div class="field">
+    <%= f.label :bill_unit_id %><br>
+    <%= f.select( :bill_unit_id, @units.map {|s| [s.name, s.id]}) %>
+  </div>
+  <div class="field">
+    <%= f.label :sw_unit_id %><br>
+    <%= f.select( :sw_unit_id, @units.map {|s| [s.name, s.id]}) %>
+  </div>
+  <div class="field">
+    <%= f.label :acount_id %><br>
+    <%= f.number_field :acount_id %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
